@@ -231,12 +231,13 @@ const LearningDashboard = () => {
       <p>Contact</p>
     </div>
     <div className="footer-section">
-      <h5>Follow Us</h5>
-      <p>Facebook</p>
-      <p>Twitter</p>
-      <p>LinkedIn</p>
-      <p>Youtube</p>
-    </div>
+  <h5>Follow Us</h5>
+  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+  <a href="https://x.com/?lang=en" target="_blank" rel="noopener noreferrer">Twitter</a>
+  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+</div>
+
   </div>
   <div className="footer-store">
   <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">

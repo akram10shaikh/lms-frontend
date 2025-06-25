@@ -446,6 +446,26 @@
     margin: 6px 0;
     cursor: pointer;
   }
+
+   .footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-right: 30px;
+}
+
+
+.footer-section a {
+  font-size: 14px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #2563eb;
+}
   
   .footer-store {
     display: flex;

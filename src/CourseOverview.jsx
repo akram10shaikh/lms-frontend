@@ -37,9 +37,9 @@ const Dashboard = () => {
 
       <div className="dashboard-body">
         <aside className="sidebar">
-          <h3>Web Development Bootcamp</h3>
+          <h3>Web Development<br/> Bootcamp</h3>
           <nav>
-            <p>Overview</p>
+            <p className='over'>Overview</p>
             <p>Course Material</p>
             <ul>
               <li>Module 1</li>
@@ -121,14 +121,17 @@ const Dashboard = () => {
 </div>
 
           <section className="assignments">
+          <h2 className="section-title">Pending Assignments and Quizes</h2>
             <div className="assignment-card">
-              <p><strong>Module Quiz: Introduction to web development</strong></p>
-              <p>Graded Quiz - Due by April 19, 11:59 PM IST.</p>
+                  <FontAwesomeIcon icon={faFileAlt} />
+              <p className='quiz'><strong>Module Quiz: Introduction to web development</strong></p>
+              <p><strong>Graded Quiz</strong> - Due by April 19, 11:59 PM IST.</p>
               <button className="btn-blue">Proceed to Test</button>
             </div>
             <div className="assignment-card">
-              <p><strong>Submit your assignment</strong></p>
-              <p>Graded Assignment - Due by April 19, 11:59 PM IST.</p>
+                  <FontAwesomeIcon icon={faFileAlt} />
+              <p className='quiz'><strong>Submit your assignment</strong></p>
+              <p><strong>Graded Assignment</strong> - Due by April 19, 11:59 PM IST.</p>
               <button className="btn-blue">Submit Now!</button>
             </div>
           </section>
