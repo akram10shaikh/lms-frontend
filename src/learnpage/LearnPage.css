@@ -415,7 +415,6 @@
 }
 
   
-  /* Footer */
   .footer {
     display: flex;
     justify-content: space-between;
@@ -478,4 +477,100 @@
     height: auto;
     object-fit: contain;
   }
-  
+
+  /* Responsive: Tablet and below */
+@media (max-width: 1024px) {
+  .learning-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .header-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .course-header.final-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-right {
+    min-width: 100%;
+    margin-left: 0;
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-content {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 16px;
+  }
+
+  .footer-store {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .course-card-wrapper {
+    padding: 16px;
+  }
+
+  .resume-btn,
+  .header-btn,
+  .header-btns,
+  .test-btn,
+  .submit-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .course-right {
+    padding: 12px;
+  }
+
+  .quiz-section,
+  .assignment-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .right-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-store img {
+    width: 120px;
+  }
+
+  .search-bar {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .course-header.final-layout {
+    padding: 16px;
+  }
+}
