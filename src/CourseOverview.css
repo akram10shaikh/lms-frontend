@@ -1,0 +1,396 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #cfcfcf;
+  pointer-events: none;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-btn {
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.header-btns {
+  padding: 8px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+h1 {
+  color: #2563eb;
+}
+
+.dashboard-body {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.sidebar nav p,
+.sidebar nav li {
+  margin: 10px 0;
+  cursor: pointer;
+  color: #374151;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+/* profie */
+
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.dropdown-icon {
+  font-size: 14px;
+  color: #111827;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 10px 14px;
+  width: 140px;
+  z-index: 100;
+}
+
+.dropdown-menu p {
+  font-size: 14px;
+  color: #333;
+  margin: 6px 0;
+  cursor: pointer;
+}
+
+.dropdown-menu p:hover {
+  color: #2563eb;
+}
+
+/* Batch Details Box */
+.batch {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0px 20px 20px 20px;
+  margin: 20px 0;
+  background-color: #fff;
+}
+
+.batch-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+
+.batch-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  gap: 20px;
+}
+
+.batch-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.batch-item a {
+  color: #3b82f6;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.batch-item p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.meeting-box {
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  padding: 12px 16px;
+  top: -25px;
+  text-align: center;
+  position: relative;
+  min-width: 180px;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+.meeting-status {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.join-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Course Resume Section */
+.course-wrapper {
+  max-width: 1500px;
+  padding: 10px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.course-card {
+  display: flex;
+  gap: 90px; 
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  align-items: flex-start;
+}
+
+.course-left,
+.course-right {
+  flex: 1;
+}
+
+.video-card {
+  width: 100%;
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.video-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.resume-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  position: relative;
+  bottom: -80px;
+  right: 140px;
+  padding: 6px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resume-btn:hover {
+  background-color: #2563eb;
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.video-icon {
+  font-size: 14px;
+}
+
+.video-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress {
+  background-color: #3b82f6;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.assignments {
+  margin-bottom: 20px;
+}
+
+.assignment-card {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.btn-blue {
+  background-color: #3b82f6;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quiz{
+  color: #2563eb;
+}
+
+.sidebar .over{
+  color: #2563eb;
+  margin: 15px 0px;
+}
+
+
+.notifications {
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.course-content details {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3f4f6;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.dashboard-footer div {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.dashboard-footer img {
+  height: 30px;
+  margin-right: 10px;
+}
