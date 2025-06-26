@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import LearnPage from './learnpage/LearnPage';
 
-import ProfilePopup from './component/ProfilePopup';
-import EnrollPage from './component/EnrollPage';
+import ProfilePopup from './pages/ProfilePopup';
+import EnrollPage from './pages/EnrollPage';
 
 function App() {
 
