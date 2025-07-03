@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  height: 100%;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  height: 100vh; 
+  background-color: #fff;
+}
+
+.signup-box {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+.form-section h3 {
+  font-size: 24px;
+  margin: 20px 0 30px;
+  font-weight: 500;
+}
+
+.highlight {
+  color: #4F46E5;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.password-wrapper input {
+  width: 100%;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 70%;
+  transform: translateY(-50%);
+  color: #aaa;
+  cursor: pointer;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-wrapper label,
+.password-wrapper label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: black;
+  font-weight: 500;
+}
+
+
+.signup-btn {
+  padding: 12px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.divider {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #777;
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 20%;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.google-btn {
+  padding: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #4f46e5;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  justify-content: center;
+  color: #ffffff;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.terms {
+  font-size: 12px;
+  color: #777;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.terms a {
+  color: #4F46E5;
+  text-decoration: none;
+}
+
+.login-text {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-text a {
+  color: #4F46E5;
+  text-decoration: none;
+}
+
+.image-section {
+  background-color: #4F46E5;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 20px;
+}
+
+.image-grid img {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+
+@media (max-width: 1024px) {
+  .signup-container {
+    padding: 20px 10px;
+    height: auto;
+  }
+
+  .signup-box {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-section,
+  .image-section {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .signup-btn,
+  .google-btn,
+  .divider {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(2, 80px);
+    grid-template-rows: repeat(2, 80px);
+    gap: 12px;
+  }
+
+  .image-grid img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-container h1 {
+    font-size: 20px;
+  }
+
+  .form-section h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+    padding: 16px;
+  }
+
+  .signup-btn,
+  .google-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(2, 70px);
+    grid-template-rows: repeat(2, 70px);
+    gap: 10px;
+  }
+
+  .image-grid img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .form-section h3 {
+    font-size: 16px;
+  }
+
+  .divider {
+    font-size: 13px;
+  }
+
+  .input-wrapper label,
+  .password-wrapper label {
+    font-size: 13px;
+  }
+
+  input {
+    font-size: 13px;
+  }
+}
