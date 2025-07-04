@@ -20,17 +20,9 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<LoginPage />} />
-        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/learnPage" element={<LearnPage />} />
-        <Route
-          path="/profile"
-          element={
-            <ProfilePopup
-              isOpen={isProfileIncomplete}
-              onClose={handlePaySubmit}
-            />
-          }
-        />
+        <Route path="/profile" element={<ProfilePopup isOpen={isProfileIncomplete} onClose={handlePaySubmit} />} />
         <Route path="/enroll" element={<EnrollPage />} />
         <Route path="/myProfile" element={<MyProfile />} />
       </Routes>
