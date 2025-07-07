@@ -6,7 +6,7 @@ import pic_1 from "../assets/Jane-Cooper.svg"
 
 const LoginPage = () => {
     return (
-        <div className="lg:flex h-[580px]">
+        <div className="lg:flex h-auto lg:px-4">
 
             {/* Left: Form */}
             <div className=" md:w-[600px] lg:w-[800px] py-10 px-6 md:px-8 lg:px-10 ">
@@ -19,7 +19,6 @@ const LoginPage = () => {
                 <h1 className="text-3xl font-semibold text-gray-800 mt-4">
                     Start your journey with a <span className="text-blue-600">secure login</span>
                 </h1>
-
 
 
                 {/* Login Form */}
@@ -96,9 +95,10 @@ const LoginPage = () => {
                     </p>
 
                     <p className="text-xs text-gray-400 text-center">
+                            
                         By continuing, you agree to the{" "}
-                        <a href="#" className="underline text-blue-500">Terms of Service</a> &{" "}
-                        <a href="#" className="underline text-blue-500">Privacy Policy</a>
+                        <a href="#" className="hover:underline text-blue-500">Terms of Service</a> &{" "}
+                        <a href="#" className="hover:underline text-blue-500">Privacy Policy</a>
                     </p>
                 </form>
 
