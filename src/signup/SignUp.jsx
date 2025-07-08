@@ -93,15 +93,15 @@ const SignupPage = () => {
 
             <div className="google-btn">
               <GoogleLogin
-  onSuccess={(credentialResponse) => {
-    console.log(credentialResponse);
-  }}
-  onError={() => {
-    console.log("Login Failed");
-  }}
-  theme="filled_blue"
-  size="large"
-/>
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                theme="filled_blue"
+                size="large"
+              />
             </div>
           </form>
 
