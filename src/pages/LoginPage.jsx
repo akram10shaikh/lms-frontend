@@ -11,6 +11,7 @@ import React, { useState } from "react";
 
 const LoginPage = () => {
 
+
     // Handle Google login success
     const handleGoogleLogin = async (credentialResponse) => {
         try {
@@ -33,13 +34,12 @@ const LoginPage = () => {
     });
 
 
+
     //Login Submit Button
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("")
-
-
 
     const loginButton = async (e) => {
         e.preventDefault();
@@ -62,6 +62,7 @@ const LoginPage = () => {
             setEmailError("Enter a valid email address");
             return;
         }
+
 
         try {
             const response = await axios.post(
@@ -90,7 +91,25 @@ const LoginPage = () => {
 
     };
 
+    // Forget Password
+    const ForgetPassword = async (e) => {
+        e.preventDefault();
 
+        const email = prompt("Enter your registered email:");
+
+        if (!email) return;
+
+        try {
+            const response = await axios.post("http://127.0.0.1:8000/accounts/password-reset-request/", {
+                email,
+            });
+
+            alert("Password reset email sent successfully.");
+        } catch (error) {
+            console.error("Forgot password error:", error);
+            alert("Failed to send reset email. Please try again.");
+        }
+    };
 
     return (
         <div className="lg:flex h-auto  ">
@@ -132,7 +151,7 @@ const LoginPage = () => {
                             Password
 
                             {/* Forget password  */}
-                            <a href="#" className="text-sm text-blue-600 hover:underline">
+                            <a href="" onClick={ForgetPassword} className="text-sm text-blue-600 hover:underline">
                                 Forget Password?
                             </a>
 
