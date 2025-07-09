@@ -66,13 +66,13 @@ const LoginPage = () => {
         try {
             const response = await axios.post(
                 "http://127.0.0.1:8000/accounts/login/",
-                
+
                 { email, password },
-                // {
-                //     // headers: {
-                //     //     "Content-Type": "application/json",
-                //     // },
-                // }
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
             );
 
             console.log("Login successful:", response.data);
