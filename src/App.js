@@ -7,6 +7,8 @@ import EnrollPage from './pages/EnrollPage';
 import MyProfile from './pages/MyProfile'
 import LoginPage from './pages/LoginPage';
 import SignUp from './signup/SignUp';
+import CourseOverview from './Course/CourseOverview';
+import Module1Page from './Course/Module1Page';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/profile" element={<ProfilePopup isOpen={isProfileIncomplete} onClose={handlePaySubmit} />} />
         <Route path="/enroll" element={<EnrollPage />} />
         <Route path="/myProfile" element={<MyProfile />} />
+        <Route path="/courses" element={<CourseOverview />} />
+        <Route path="/module1" element={<Module1Page />} />
       </Routes>
     </Router>
 

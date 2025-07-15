@@ -1,5 +1,6 @@
 // import React from "react";
 import { FaStar } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import studentPic from "../assets/StudentPic.jpg"
 import logo from "../assets/logo.png"
 import pic_1 from "../assets/Jane-Cooper.svg"
@@ -10,6 +11,12 @@ import React, { useState } from "react";
 
 
 const LoginPage = () => {
+
+    // Hide and Show Password
+    const [showPassword, setShowPassword] = useState(false);
+
+
+
 
     // Handle Google login success
     const handleGoogleLogin = async (credentialResponse) => {
@@ -33,13 +40,12 @@ const LoginPage = () => {
     });
 
 
+
     //Login Submit Button
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("")
-
-
 
     const loginButton = async (e) => {
         e.preventDefault();
@@ -63,16 +69,17 @@ const LoginPage = () => {
             return;
         }
 
+
         try {
             const response = await axios.post(
                 "http://127.0.0.1:8000/accounts/login/",
-                
+
                 { email, password },
-                // {
-                //     // headers: {
-                //     //     "Content-Type": "application/json",
-                //     // },
-                // }
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
             );
 
             console.log("Login successful:", response.data);
@@ -90,7 +97,25 @@ const LoginPage = () => {
 
     };
 
+    // Forget Password
+    const ForgetPassword = async (e) => {
+        e.preventDefault();
 
+        const email = prompt("Enter your registered email:");
+
+        if (!email) return;
+
+        try {
+            const response = await axios.post("http://127.0.0.1:8000/accounts/password-reset-request/", {
+                email,
+            });
+
+            alert("Password reset email sent. Please check your inbox.");
+        } catch (error) {
+            console.error("Forgot password error:", error);
+            alert("Enter Valid Email ID");
+        }
+    };
 
     return (
         <div className="lg:flex h-auto  ">
@@ -110,6 +135,8 @@ const LoginPage = () => {
 
                 {/* Login Form  */}
                 <form className="space-y-4 pt-4">
+
+                    {/* Email Section */}
                     <div>
                         <label className="text-sm text-gray-600">Email</label>
                         <input
@@ -127,30 +154,48 @@ const LoginPage = () => {
                     </div>
 
 
+                    {/* Password Section */}
                     <div>
                         <label className="text-sm text-gray-600 flex justify-between">
                             Password
-
-                            {/* Forget password  */}
-                            <a href="#" className="text-sm text-blue-600 hover:underline">
+                            <a
+                                href=""
+                                onClick={ForgetPassword}
+                                className="text-sm text-blue-600 hover:underline"
+                            >
                                 Forget Password?
                             </a>
-
                         </label>
-                        <input
-                            type="password"
-                            placeholder="Enter Password"
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                                setPasswordError("");
-                            }}
-                            required
-                            className={`w-full border px-4 py-2 rounded-md mt-1 focus:outline-none focus:ring-2 ${passwordError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
-                                }`}
-                        />
-                        {passwordError && <p className="text-sm text-red-600 mt-1">{passwordError}</p>}
 
+
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Enter Password"
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                }}
+                                required
+                                className={`w-full border px-4 py-2 pr-10 rounded-md mt-1 focus:outline-none focus:ring-2 ${passwordError
+                                    ? "border-red-500 focus:ring-red-500"
+                                    : "border-gray-300 focus:ring-blue-500"
+                                    }`}
+                            />
+
+                            <span
+                                className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500"
+                                onClick={() => setShowPassword((prev) => !prev)}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </span>
+                        </div>
+
+                        {passwordError && (
+                            <p className="text-sm text-red-600 mt-1">{passwordError}</p>
+                        )}
                     </div>
+
 
 
                     {/* LogIn Button  */}
