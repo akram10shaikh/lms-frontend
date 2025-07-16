@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import './index.css';
 function EnrollPage({ showLoadingMessage }) {
 
     const originalPrice = 3500;
