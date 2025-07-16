@@ -7,31 +7,62 @@ import { useEffect, useState } from 'react';
 function MyProfile() {
 
     // For Profile Edit
-    const [showProfilePopup, setShowProfilePopup] = useState(false)
-    const [profileImage, setProfileImage] = useState(null);
+    const [showProfilePopup, setShowProfilePopup] = useState(false);
+    const [photoData, setPhotoData] = useState({ image: "" });
+    const [imageFile, setImageFile] = useState(null);
+
+
 
     // Photo Change
-    const PhotoChange = (e) => {
+    const photoChange = (e) => {
         const file = e.target.files[0];
-        if (file && file.size <= 1024 * 1024) {
+
+        if (file && file.type.startsWith("image/") && file.size <= 1024 * 1024) {
             const reader = new FileReader();
-            reader.onloadend = () => setProfileImage(reader.result);
+            reader.onloadend = () => {
+                const imageData = reader.result;
+                setPhotoData({ image: imageData });
+                localStorage.setItem("profileImage", imageData); // Save to local storage
+            };
             reader.readAsDataURL(file);
         } else {
-            alert("Image must be under 1MB");
+            alert("Please upload an image under 1MB.");
         }
     };
 
+
     //  Remove selected photo
     const RemovePhoto = () => {
-        setProfileImage(null);
+        setImageFile(null);
+        setPhotoData({ image: "" });
+        localStorage.removeItem("profileImage");
     };
 
-    //  Save Photo
-    const SaveDetails = () => {
-        console.log("Saved:", profileImage); // You can save to localStorage or backend here
+
+    // Save Photo
+    const savePhoto = () => {
+        if (imageFile) {
+            const imageUrl = URL.createObjectURL(imageFile);
+            const photo = { image: imageUrl };
+
+            setPhotoData(photo);
+            localStorage.setItem("profileImage", imageUrl);
+        }
         setShowProfilePopup(false);
     };
+
+
+
+    // Load from local Storage
+    useEffect(() => {
+        const savedImage = localStorage.getItem("profileImage");
+        if (savedImage) {
+            setPhotoData({ image: savedImage });
+        }
+    }, []);
+
+
+
 
     // Contact Information
     const [showContactPopup, setShowContactPopup] = useState(false);
@@ -57,8 +88,7 @@ function MyProfile() {
 
         // Save data to localStorage
         localStorage.setItem("contactInfo", JSON.stringify(contactData));
-        // Optionally close the popup
-        setShowContactPopup(false);
+        setShowContactPopup(false);// Optionally close the popup
         setSavedContact(contactData); // store in state
 
     };
@@ -287,7 +317,6 @@ function MyProfile() {
 
                             <div className="bg-white rounded-2xl p-4 max-w-md w-full text-center relative shadow-lg">
 
-                                {/* Title */}
                                 <h2 className="text-2xl font-bold text-gray-900">Personal details</h2>
                                 <p className="text-gray-500 mt-1">
                                     Add your personal details as you would like it to appear on your profile.
@@ -295,7 +324,7 @@ function MyProfile() {
 
                                 {/* Profile Photo + Upload */}
                                 <img
-                                    src={profileImage || avatar}
+                                    src={photoData.image}
                                     className="w-28 h-28 rounded-full border border-gray-600 mx-auto object-cover mt-4"
                                 />
 
@@ -303,8 +332,10 @@ function MyProfile() {
 
                                     <label className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer text-sm hover:bg-blue-700">
                                         Change photo
-                                        <input type="file" onChange={PhotoChange} className="hidden" />
+                                        <input type="file" onChange={photoChange} className="hidden" />
                                     </label>
+
+
                                     <button
                                         onClick={RemovePhoto}
                                         className="border border-blue-600 text-blue-600 px-4 py-2 rounded text-sm hover:bg-blue-50"
@@ -312,13 +343,14 @@ function MyProfile() {
                                         Remove
                                     </button>
                                 </div>
+
                                 <p className="text-xs text-gray-400 mt-2">
                                     Maximum size: 1MB. Supported formats: JPG, GIF, or PNG.
                                 </p>
 
                                 {/* Save Button */}
                                 <button
-                                    onClick={SaveDetails}
+                                    onClick={savePhoto}
                                     className="w-full bg-blue-600 text-white py-2 mt-6 rounded hover:bg-blue-700 text-sm font-semibold"
                                 >
                                     Save
@@ -340,7 +372,7 @@ function MyProfile() {
 
                     {/* Avatar */}
                     <div className="flex flex-col items-center mt-5">
-                        <img src={profileImage || avatar} alt="Profile" className="h-28 w-28 rounded-full" />
+                        <img src={photoData.image} alt="Profile" className="h-28 w-28 rounded-full" />
                         <p className="mt-2 font-semibold">Vishal</p>
                     </div>
 
