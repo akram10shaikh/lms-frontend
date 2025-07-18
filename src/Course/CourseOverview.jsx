@@ -19,6 +19,14 @@ const Dashboard = () => {
     navigate('/module1');
   };
 
+  const handleTestClick = () => {
+    navigate('/quiz');
+  };
+
+  const handleAssignmentClick = () => {
+    navigate('/assignment')
+  };
+
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
@@ -31,6 +39,8 @@ const Dashboard = () => {
     setShowMore(!showMore);
   };
   const [showSharePopup, setShowSharePopup] = useState(false);
+
+  
 
   return (
 
@@ -208,31 +218,33 @@ const Dashboard = () => {
 
       {/* Quiz card */}
       <div className="task-card">
-        <div className="task-left">
-          <FontAwesomeIcon icon={faFileAlt} className="task-icon" />
-          <div>
-            <p className="task-heading">Module Quiz: Introduction to web development</p>
-            <p className="task-sub">
-              <strong>Graded Quiz</strong> - Due by April 19, 11:59 PM IST.
-            </p>
-          </div>
+      <div className="task-left">
+        <FontAwesomeIcon icon={faFileAlt} className="task-icon" />
+        <div>
+          <p className="task-heading">Module Quiz: Introduction to web development</p>
+          <p className="task-sub">
+            <strong>Graded Quiz</strong> - Due by April 19, 11:59 PM IST.
+          </p>
         </div>
-        <button className="task-btn">Proceed to Test</button>
       </div>
+      <button className="task-btn" onClick={handleTestClick}>Proceed to Test</button>
+    </div>
 
       {/* Assignment card */}
       <div className="task-card">
-        <div className="task-left">
-          <FontAwesomeIcon icon={faClipboard} className="task-icon" />
-          <div>
-            <p className="task-heading">Submit your assignment</p>
-            <p className="task-sub">
-              <strong>Graded Assignment</strong> - Due by April 19, 11:59 PM IST.
-            </p>
-          </div>
+      <div className="task-left">
+        <FontAwesomeIcon icon={faClipboard} className="task-icon" />
+        <div>
+          <p className="task-heading">Submit your assignment</p>
+          <p className="task-sub">
+            <strong>Graded Assignment</strong> - Due by April 19, 11:59 PM IST.
+          </p>
         </div>
-        <button className="task-btn">Submit Now</button>
       </div>
+      <button className="task-btn" onClick={handleAssignmentClick}>
+        Submit Now
+      </button>
+    </div>
     </div>
 
       {/* Notifications */}

@@ -9,6 +9,8 @@ import LoginPage from './pages/LoginPage';
 import SignUp from './signup/SignUp';
 import CourseOverview from './Course/CourseOverview';
 import Module1Page from './Course/Module1Page';
+// import QuizPage from './Course/compnents/QuizPages';
+// import AssignmentPage from './Course/compnents/AssignmentPage';
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/myProfile" element={<MyProfile />} />
         <Route path="/courses" element={<CourseOverview />} />
         <Route path="/module1" element={<Module1Page />} />
+        {/* <Route path="/assignment" element={<AssignmentPage/>}/>
+        <Route path="/quiz" element={<QuizPage/>}/> */}
       </Routes>
     </Router>
 
