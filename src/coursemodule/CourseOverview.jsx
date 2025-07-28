@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ChatPage from './components/ChatPage';
 import './CourseOverview.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faLink, faKey, faFileAlt, faMagnifyingGlass, faPlay, faChevronDown, faClipboard,faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -39,8 +40,8 @@ const Dashboard = () => {
     setShowMore(!showMore);
   };
   const [showSharePopup, setShowSharePopup] = useState(false);
+  const [activeTab, setActiveTab] = useState('course');
 
-  
 
   return (
 
@@ -124,7 +125,12 @@ const Dashboard = () => {
       <h3 className="sidebar-title">Web Development Bootcamp</h3>
 
       <ul className="sidebar-list">
-        <li className="sidebar-link active">Overview</li>
+        <li
+  className={`sidebar-link ${activeTab === 'course' ? 'active' : ''}`}
+  onClick={() => setActiveTab('course')}
+>
+  Overview
+</li>
 
         <li className="sidebar-link dropdown" onClick={toggleModules}>
           <span>Course Material</span>
@@ -145,12 +151,22 @@ const Dashboard = () => {
 
         <li className="sidebar-link">Grades</li>
         <li className="sidebar-link">Notifications</li>
-        <li className="sidebar-link">Chat with Trainer</li>
+        
+<li
+  className={`sidebar-link ${activeTab === 'chat' ? 'active' : ''}`}
+  onClick={() => setActiveTab('chat')}
+>
+  Chat with Trainer
+</li>
+
       </ul>
     </div>
 
         <main className="content">
-          <div className="batch-section">
+          
+    {activeTab === 'course' ? (
+    <>
+      <div className="batch-section">
     <h4 className="batch-title">Batch Details</h4>
     <div className="batch-details">
       <div className="batch-item">
@@ -204,7 +220,7 @@ const Dashboard = () => {
     </div>
 
     <div className="course-right">
-      <h3 style={{fontWeight:'bolder'}}>Web Development Bootcamp course</h3>
+      <h3>Web Development Bootcamp course</h3>
       <p>Course : 60% completed</p>
       <div className="progress-bar">
         <div className="progress" style={{ width: '60%' }}></div>
@@ -336,6 +352,11 @@ const Dashboard = () => {
         ))}
       </div>
     </div>
+
+    </>
+  ) : (
+    <ChatPage />
+  ) }
 
     
 <footer className="footer">

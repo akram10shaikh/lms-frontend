@@ -1,3 +1,5 @@
+/* Dashboard.css */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -304,12 +306,6 @@ h1 {
   flex: 1;
 }
 
-.course-right{
-  flex-direction: column;
-  border: none;
-  
-}
-
 .video-card {
   width: 100%;
 }
@@ -530,28 +526,23 @@ h1 {
   border-top: none;
 }
   
-  /* Footer */
-.footer {
-  margin-top: 50px; 
-  padding: 16px;
-  text-align: center;
-  font-size: 14px;
-  color: #6b7280;
+  .footer {
+  background-color: #fff;
+  padding: 40px 60px;
+  border-top: 1px solid #e5e7eb;
+  font-family: Arial, sans-serif;
 }
 
-/* Footer Info Section */
 .footer-info {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 400px;
-  
+  gap: 40px;
 }
 
 .footer-columns {
   display: flex;
-  margin-left: 80px !important;
-
+  gap: 80px;
 }
 
 .footer-section h5 {
@@ -560,16 +551,14 @@ h1 {
   margin-bottom: 12px;
 }
 
+.footer-section p,
 .footer-section a {
   font-size: 14px;
   color: #6b7280;
+  margin: 6px 0;
   text-decoration: none;
   display: block;
   transition: color 0.3s ease;
-}
-
-.footer-section p{
-  margin-top: -5px !important;
 }
 
 .footer-section a:hover,
@@ -589,7 +578,6 @@ h1 {
   height: auto;
   cursor: pointer;
 }
-
 
 /* Make images and containers responsive */
 img,

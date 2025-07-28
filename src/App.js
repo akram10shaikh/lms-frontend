@@ -12,6 +12,7 @@ import Module1Page from './coursemodule/Module1Page';
 import QuizPage from './coursemodule/QuizPages';
 import AssignmentPage from './coursemodule/AssignmentPage';
 
+
 function App() {
 
   // For EnrollPage//
@@ -34,6 +35,7 @@ function App() {
         <Route path="/module1" element={<Module1Page />} /> 
         <Route path="/assignment" element={<AssignmentPage/>}/>
         <Route path="/quiz" element={<QuizPage/>}/>
+  
       </Routes>
     </Router>
 
