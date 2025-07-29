@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ChatPage from './components/ChatPage';
+import ChatPage from './components/ChatPage'; 
+import NotificationPage from './components/NotificationPage';
 import './CourseOverview.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faLink, faKey, faFileAlt, faMagnifyingGlass, faPlay, faChevronDown, faClipboard,faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +28,10 @@ const Dashboard = () => {
   const handleAssignmentClick = () => {
     navigate('/assignment')
   };
+
+  const goToNotifications = () => {
+  navigate("/notification");
+};
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -150,7 +155,12 @@ const Dashboard = () => {
         )}
 
         <li className="sidebar-link">Grades</li>
-        <li className="sidebar-link">Notifications</li>
+        <li
+  className={`sidebar-link ${activeTab === 'notification' ? 'active' : ''}`}
+  onClick={() => setActiveTab('notification')}
+>
+  Notification
+</li>
         
 <li
   className={`sidebar-link ${activeTab === 'chat' ? 'active' : ''}`}
@@ -163,10 +173,10 @@ const Dashboard = () => {
     </div>
 
         <main className="content">
-          
-    {activeTab === 'course' ? (
-    <>
-      <div className="batch-section">
+
+          {activeTab === 'course' && (
+  <>
+    <div className="batch-section">
     <h4 className="batch-title">Batch Details</h4>
     <div className="batch-details">
       <div className="batch-item">
@@ -353,12 +363,13 @@ const Dashboard = () => {
       </div>
     </div>
 
-    </>
-  ) : (
-    <ChatPage />
-  ) }
+  </>
+)}
 
-    
+{activeTab === 'chat' && <ChatPage />}
+{activeTab === 'notification' && <NotificationPage />}
+
+              
 <footer className="footer">
   <div className="footer-info">
     <div className="footer-columns">
