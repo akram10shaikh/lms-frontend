@@ -1,0 +1,75 @@
+.missing-details-large {
+  width: min(600px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 44px;
+  box-shadow: 0 28px 55px rgba(15, 23, 42, 0.12);
+}
+
+.missing-details-large h2 {
+  margin: 0 0 18px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.missing-details-large-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.warning-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  border: 1px solid rgba(220, 38, 38, 0.15);
+}
+
+.missing-details-large-message p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #dc2626;
+}
+
+.missing-details-large-actions {
+  display: flex;
+  gap: 18px;
+}
+
+.details-btn {
+  flex: 1;
+  padding: 16px 0;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.details-btn.primary {
+  background: linear-gradient(135deg, #3366ff, #4f46e5);
+  border-color: #3f64ff;
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(52, 105, 255, 0.35);
+}
+
+.details-btn.secondary {
+  background: #ffffff;
+  color: #4338ca;
+  border-color: #4338ca;
+}
+
+.details-btn:hover {
+  transform: translateY(-1px);
+}

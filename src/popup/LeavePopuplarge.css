@@ -1,0 +1,52 @@
+.leave-popup-large {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 36px;
+  width: min(520px, 100%);
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.17);
+}
+
+.leave-popup-large h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.leave-popup-large p {
+  margin: 0 0 24px;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.leave-actions-large {
+  display: flex;
+  gap: 16px;
+}
+
+.leave-btn.large {
+  flex: 1;
+  border-radius: 10px;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.leave-btn.large.primary {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+
+.leave-btn.large.secondary {
+  background: #ffffff;
+  color: #3b82f6;
+  border-color: #3b86ff;
+}
+
+.leave-btn.large:hover {
+  transform: translateY(-1px);
+}

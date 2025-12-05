@@ -1,0 +1,137 @@
+.missing-card {
+  width: min(420px, 90vw);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.missing-heading h2 {
+  margin: 0 0 10px;
+  font-size: 26px;
+  color: #111827;
+}
+
+.missing-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.missing-icon {
+  font-size: 20px;
+  color: #ef4444;
+}
+
+.missing-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ef4444;
+}
+
+.missing-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.missing-btn {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.missing-btn.primary {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
+}
+
+.missing-btn.secondary {
+  background: #ffffff;
+  color: #3b82f6;
+  border-color: #3b86ff;
+}
+
+.missing-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Large screens */
+@media (min-width: 768px) {
+  .missing-card {
+    width: min(600px, 90vw);
+    padding: 40px 44px;
+    border-radius: 24px;
+  }
+
+  .missing-heading h2 {
+    font-size: 36px;
+    margin: 0 0 14px;
+  }
+
+  .missing-icon {
+    font-size: 24px;
+  }
+
+  .missing-body p {
+    font-size: 16px;
+  }
+
+  .missing-body {
+    margin-bottom: 28px;
+  }
+
+  .missing-actions {
+    gap: 20px;
+  }
+
+  .missing-btn {
+    padding: 16px 0;
+    font-size: 17px;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .missing-card {
+    width: 95vw;
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+
+  .missing-heading h2 {
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+
+  .missing-icon {
+    font-size: 16px;
+  }
+
+  .missing-body p {
+    font-size: 13px;
+  }
+
+  .missing-body {
+    margin-bottom: 16px;
+  }
+
+  .missing-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .missing-btn {
+    padding: 12px 0;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}

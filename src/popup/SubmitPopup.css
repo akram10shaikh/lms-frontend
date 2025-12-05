@@ -1,0 +1,94 @@
+.submit-card {
+  width: min(360px, 90vw);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+  text-align: left;
+}
+
+.submit-card h2 {
+  margin: 0 0 18px;
+  font-size: 28px;
+  color: #111827;
+}
+
+.submit-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.submit-btn {
+  flex: 1;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.submit-btn.primary {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.35);
+}
+
+.submit-btn.secondary {
+  background: #ffffff;
+  color: #3b82f6;
+  border-color: #3b86ff;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Large screens */
+@media (min-width: 768px) {
+  .submit-card {
+    width: min(560px, 90vw);
+    padding: 36px 40px;
+    border-radius: 20px;
+  }
+
+  .submit-card h2 {
+    font-size: 32px;
+    margin: 0 0 24px;
+  }
+
+  .submit-actions {
+    gap: 18px;
+  }
+
+  .submit-btn {
+    padding: 16px 0;
+    font-size: 16px;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .submit-card {
+    width: 95vw;
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .submit-card h2 {
+    font-size: 22px;
+    margin: 0 0 14px;
+  }
+
+  .submit-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submit-btn {
+    padding: 12px 0;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}

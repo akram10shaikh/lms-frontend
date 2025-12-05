@@ -1,0 +1,199 @@
+import React, { useState } from "react";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { FiLock, FiMail } from "react-icons/fi";
+
+const LoginPage = ({ setIsLoggedIn }) => {
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+    let hasError = false;
+    
+    // Validate email
+    if (!email.trim()) {
+      setEmailError("Please enter your email");
+      hasError = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError("Please enter a valid email address");
+      hasError = true;
+    }
+    
+    // Validate password
+    if (!password.trim()) {
+      setPasswordError("Please enter your password");
+      hasError = true;
+    } else if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters");
+      hasError = true;
+    }
+    
+    // Only redirect if no errors
+    if (!hasError) {
+      setIsLoggedIn(true);
+      navigate("/home");
+    }
+  };
+
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      console.log("Google Sign-In successful!");
+      setIsLoggedIn(true);
+      navigate("/home");
+    } catch (err) {
+      console.error("Google Sign-In failed:", err);
+      alert("Google Sign-In failed");
+    }
+  };
+
+  const login = useGoogleLogin({
+    onSuccess: handleGoogleLogin,
+    onError: () => {
+      console.log('Google Login Failed');
+      alert('Google Login Failed');
+    },
+    flow: 'implicit',
+  });
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  return (
+    <div className="flex h-screen bg-gray-50">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-md">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="text-2xl font-bold text-blue-600">✱ LearnPro</span>
+          </div>
+          <h1 className="text-3xl font-bold text-gray-800 mb-8">
+            Start your journey with a <span className="text-blue-600">secure login</span>
+          </h1>
+          <form className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <div className="relative">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setEmailError("");
+                  }}
+                  placeholder="Enter Email"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${emailError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"}`}
+                />
+                <FiMail className="absolute right-3 top-3 text-gray-400" />
+              </div>
+              {emailError && <p className="text-sm text-red-500 mt-1">{emailError}</p>}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setPasswordError("");
+                  }}
+                  placeholder="Create Password"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${passwordError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"}`}
+                />
+                <div
+                  className="absolute right-3 top-3 cursor-pointer text-gray-400"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </div>
+              </div>
+              {passwordError && <p className="text-sm text-red-500 mt-1">{passwordError}</p>}
+              <div className="text-right mt-1">
+                <a href="#" className="text-sm text-blue-600 hover:underline">
+                  Forget Password?
+                </a>
+              </div>
+            </div>
+            <button
+              type="submit"
+              onClick={handleLogin}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+            >
+              Login to Learn
+            </button>
+            <div className="flex items-center justify-center gap-4">
+              <hr className="w-1/3 border-t border-gray-300" />
+              <span className="text-sm text-gray-500">Or continue with email</span>
+              <hr className="w-1/3 border-t border-gray-300" />
+            </div>
+            <button
+              type="button"
+              onClick={login}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center justify-center gap-2"
+            >
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="w-5 h-5"
+              />
+              Continue with Google
+            </button>
+            <p className="text-sm text-center text-gray-600">
+              New to LearnPro?{" "}
+              <a href="/signup" className="text-blue-600 hover:underline font-medium">
+                Sign Up
+              </a>
+            </p>
+            <p className="text-xs text-gray-500 text-center">
+              By continuing, you agree to the{" "}
+              <a href="#" className="text-blue-500 hover:underline">
+                Terms of Service
+              </a>{" "}
+              applicable to LearnPro and confirm you have read our{" "}
+              <a href="#" className="text-blue-500 hover:underline">
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </form>
+        </div>
+      </div>
+      <div className="hidden md:flex md:w-1/2 bg-blue-50 items-center justify-center p-8">
+        <div className="relative w-full h-full rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="Team"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-white p-4 shadow-lg">
+            <div className="flex items-center gap-2">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Morgan Gibbs"
+                className="w-10 h-10 rounded-full"
+              />
+              <div>
+                <h4 className="font-medium">Morgan Gibbs</h4>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">
+              I completed LearnPro’s Web Development course and had a great experience. It covered
+              core technologies like HTML, CSS, JavaScript. The instructors were clear, and
+              recorded sessions made it easy to revisit fast-paced parts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;

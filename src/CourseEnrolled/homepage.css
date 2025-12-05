@@ -1,0 +1,111 @@
+/* Course Details page styles */
+.course-detail-root {
+  padding: 92px 32px;
+  font-family: Inter, Arial, sans-serif;
+  color: #0f172a;
+  /* light-blue translucent background */
+  background: linear-gradient(180deg, rgba(235,246,255,0.9) 0%, rgba(237,244,255,0.8) 100%);
+}
+.course-detail-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.course-left { flex: 1; }
+.course-badge { display: inline-block; background: #eef2ff; padding: 6px 12px; border-radius: 20px; font-size: 12px; color: #2563eb; margin-bottom: 12px; }
+.course-title { font-size: 36px; margin: 6px 0 12px; color: #1231b8; font-weight: 800; }
+.course-meta { display:flex; gap:18px; align-items:center; color:#6b7280; margin-bottom:12px; font-size:14px; }
+.course-desc { color:#374151; line-height:1.6 }
+.course-price { display:flex; align-items:center; gap:18px; margin-top:18px; }
+.course-price .price { font-size:18px; font-weight:800; color:#0f172a }
+.course-price .old { font-size:14px; font-weight:600; color:#6b7280; margin-left:8px; text-decoration:line-through }
+.course-price .pct { font-size:14px; color:#111827; margin-left:8px }
+.course-ctas { margin-top:18px; display:flex; gap:12px }
+.btn { padding:12px 20px; border-radius:8px; color:#fff; text-decoration:none; display:inline-block }
+.btn-primary { background:#2563eb }
+.btn-secondary { background:#10b981 }
+
+.promo-card { width:420px }
+.promo-card .card { border-radius:12px; overflow:hidden; box-shadow:0 12px 30px rgba(2,6,23,0.08); position:relative; }
+.promo-card img { width:100%; height:320px; object-fit:cover; display:block }
+
+/* removed dark overlay so text sits directly on the image; add subtle text-shadow for legibility */
+.promo-card .card-body { position:absolute; top:24px; left:24px; right:24px; z-index:2; color:#fff; padding:0; text-shadow: 0 6px 20px rgba(0,0,0,0.45) }
+.promo-card .badge { background:#7dd3fc; display:inline-block; padding:6px 10px; border-radius:8px; color:#092241; font-weight:800; font-size:13px }
+.promo-card h3 { margin:12px 0 6px; font-size:34px; line-height:1.05; font-weight:800 }
+.promo-card p { margin:0; opacity:0.95; font-size:14px }
+.promo-card .sub { margin-top:10px; font-weight:700 }
+
+@media (max-width:900px) {
+  .course-detail-inner { flex-direction:column }
+  .promo-card { width:100% }
+}
+
+/* Learn section styles */
+.learn-section { background: transparent; padding: 40px 0 80px }
+.learn-inner { max-width:1100px; margin:0 auto; padding:0 20px }
+.learn-heading { font-size:20px; margin-bottom:18px; font-weight:700 }
+.learn-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.learn-item { display:flex; gap:12px; align-items:flex-start }
+.learn-icon { width:40px; height:40px; border-radius:8px; background:#eef6ff; display:flex; align-items:center; justify-content:center; font-size:18px }
+.learn-icon-img { width:26px; height:26px; display:block }
+.learn-item-title { font-weight:700; margin-bottom:6px }
+.learn-item-desc { color:#475569; font-size:14px }
+.learn-sep { margin:28px 0; border:none; border-top:1px solid #eef2f6 }
+.includes-heading { font-size:18px; margin-bottom:12px; font-weight:700 }
+.includes-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:18px }
+.include-item { display:flex; gap:12px; align-items:center; padding:12px 0 }
+.include-icon { width:44px; height:44px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
+.include-icon img { width:26px; height:26px; display:block }
+.course-description { margin-top:12px }
+.course-description h4 { margin-bottom:10px }
+.course-description p { color:#6b7280; line-height:1.6 }
+
+@media (max-width:900px){
+  .learn-grid{grid-template-columns:repeat(1,1fr)}
+  .includes-grid{grid-template-columns:repeat(1,1fr)}
+}
+
+/* Course Materials (accordion) */
+.course-materials { padding: 40px 0 80px; background: transparent }
+.cm-inner { max-width:1100px; margin:0 auto; padding:0 20px }
+.cm-heading { font-size:20px; margin-bottom:18px; font-weight:700 }
+.cm-item { background:#fff; border-radius:10px; margin-bottom:12px; border:1px solid #eef2f6; overflow:hidden }
+.cm-summary { width:100%; display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:transparent; border:none; cursor:pointer }
+.cm-left { display:flex; align-items:center; gap:12px }
+.cm-icon { width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:#fff; box-shadow:0 6px 18px rgba(2,6,23,0.04) }
+.cm-right { color:#6b7280 }
+.cm-panel { padding:18px; border-top:1px solid #f1f5f9; background:linear-gradient(180deg,#ffffff,#fbfdff) }
+.cm-panel-inner { max-width:100%; color:#475569; line-height:1.6 }
+.cm-link { display:inline-block; color:#2563eb; margin-bottom:8px; text-decoration:none }
+
+@media (max-width:900px){
+  .cm-panel { padding:14px }
+}
+
+/* Reviews & Author */
+.reviews-section { padding: 40px 0 80px }
+.reviews-inner { max-width:1100px; margin:0 auto; padding:0 20px }
+.section-title { font-size:20px; margin-bottom:18px; font-weight:700 }
+.reviews-list { background:#fff; border-radius:10px; border:1px solid #eef2f6; padding:12px }
+.review-item { display:flex; gap:12px; padding:16px 12px; align-items:flex-start }
+.r-avatar { width:40px; height:40px; border-radius:50%; box-shadow:0 6px 18px rgba(2,6,23,0.04); flex:0 0 40px }
+.r-head { display:flex; justify-content:space-between; align-items:center; gap:12px }
+.r-meta { display:flex; gap:10px; align-items:center; color:#6b7280; font-size:13px }
+.r-stars { color:#f59e0b; font-size:14px; letter-spacing:1px }
+.r-date { color:#6b7280; font-size:13px }
+.r-text { color:#475569; margin-top:8px; line-height:1.6 }
+.reviews-sep { border:none; border-top:1px solid #eef2f6; margin:6px 0 }
+
+.author-card { background:#fff; border-radius:10px; border:1px solid #eef2f6; padding:14px; margin-top:18px; display:flex; gap:12px; align-items:flex-start }
+.ac-avatar { width:56px; height:56px; border-radius:50%; background:#fde7c7; box-shadow:0 6px 18px rgba(2,6,23,0.04) }
+.ac-name { font-weight:700; margin-bottom:4px }
+.ac-sub { color:#6b7280; font-size:13px; margin-bottom:6px }
+.ac-rating { display:inline-block; background:#fff3e0; color:#b45309; padding:6px 10px; border-radius:12px; font-size:13px; margin-bottom:8px; border:1px solid rgba(184,114,22,0.08) }
+.ac-bio { color:#475569; line-height:1.6 }
+
+@media (max-width:900px){
+  .reviews-list, .author-card { padding:12px }
+}

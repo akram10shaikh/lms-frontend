@@ -1,0 +1,45 @@
+.submit-large {
+  background: #ffffff;
+  padding: 36px 40px;
+  border-radius: 20px;
+  box-shadow: 0 30px 50px rgba(15, 23, 42, 0.15);
+  width: min(560px, 100%);
+}
+
+.submit-large h2 {
+  margin: 0 0 24px;
+  font-size: 32px;
+  color: #111827;
+}
+
+.submit-large-actions {
+  display: flex;
+  gap: 18px;
+}
+
+.submit-btn {
+  flex: 1;
+  border-radius: 12px;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.submit-btn.primary {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.35);
+}
+
+.submit-btn.secondary {
+  background: #ffffff;
+  color: #3b82f6;
+  border-color: #3b86ff;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+}
