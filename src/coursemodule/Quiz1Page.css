@@ -1,0 +1,288 @@
+/* Quiz1 Page Wrapper */
+.quiz1-page-wrapper {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Main Container */
+.quiz1-main-container {
+  display: flex;
+  margin-top: 70px;
+  min-height: calc(100vh - 70px);
+}
+
+/* Sidebar */
+.quiz1-sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.sidebar-header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+.sidebar-section {
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  cursor: pointer;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.module-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px 14px 24px;
+  font-size: 15px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.module-item:hover {
+  background: #f3f4f6;
+}
+
+.module-item.active {
+  color: #111827;
+  background: #f0f5ff;
+}
+
+.module-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #3b82f6;
+  border-radius: 0 4px 4px 0;
+}
+
+.module-indicator {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  flex-shrink: 0;
+}
+
+.module-item.active .module-indicator {
+  background: #dbeafe;
+}
+
+.sidebar-menu-item {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-menu-item:hover {
+  background: #f3f4f6;
+}
+
+/* Main Content */
+.quiz1-content {
+  flex: 1;
+  padding: 24px 40px;
+}
+
+/* Breadcrumb */
+.quiz1-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+}
+
+.breadcrumb-active {
+  color: #3b82f6;
+}
+
+/* Title */
+.quiz1-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 24px;
+}
+
+/* Cards Container */
+.quiz1-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Quiz Card */
+.quiz1-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.quiz1-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.quiz1-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin: 0;
+}
+
+.expand-icon {
+  cursor: pointer;
+}
+
+.quiz1-date-badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.quiz1-card-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+/* Card Details */
+.quiz1-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-icon {
+  font-size: 14px;
+  width: 20px;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #374151;
+  min-width: 120px;
+}
+
+.detail-value {
+  font-size: 14px;
+  color: #6b7280;
+  margin-left: auto;
+}
+
+.type-value {
+  font-weight: 500;
+}
+
+.grade-value {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.status-value {
+  font-weight: 600;
+}
+
+/* Note */
+.quiz1-card-note {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 16px 0 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .quiz1-main-container {
+    flex-direction: column;
+  }
+
+  .quiz1-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .quiz1-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz1-content {
+    padding: 16px;
+  }
+
+  .quiz1-card {
+    padding: 16px;
+  }
+
+  .detail-row {
+    flex-wrap: wrap;
+  }
+
+  .detail-value {
+    margin-left: 30px;
+    width: 100%;
+  }
+}
