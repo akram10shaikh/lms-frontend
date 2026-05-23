@@ -35,9 +35,37 @@ const AssignmentPage2 = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const ALLOWED_FORMATS = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.xls', '.xlsx'];
+  const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB
+
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
-    setAttachments([...attachments, ...files]);
+    const invalid = [];
+
+    const valid = files.filter((file) => {
+      const ext = '.' + file.name.split('.').pop().toLowerCase();
+      if (!ALLOWED_FORMATS.includes(ext)) {
+        invalid.push(`"${file.name}" — unsupported format. Allowed: ${ALLOWED_FORMATS.join(', ')}`);
+        return false;
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        invalid.push(`"${file.name}" — exceeds 50 MB limit.`);
+        return false;
+      }
+      return true;
+    });
+
+    if (invalid.length > 0) {
+      alert(`The following files were rejected:\n\n${invalid.join('\n')}`);
+    }
+
+    if (valid.length > 0) {
+      setAttachments([...attachments, ...valid]);
+    }
+  };
+
+  const removeAttachment = (index) => {
+    setAttachments(attachments.filter((_, i) => i !== index));
   };
 
   const styles = {
@@ -476,7 +504,7 @@ const AssignmentPage2 = () => {
           {/* Attachments Section */}
           <div style={styles.attachmentsSection}>
             <div style={styles.attachmentsHeader}>
-              <h3 style={styles.attachmentsTitle}>Attachments (1)</h3>
+              <h3 style={styles.attachmentsTitle}>Attachments ({attachments.length})</h3>
               <span style={styles.dueDate}>Due Date 22/09/2024</span>
             </div>
 
@@ -511,8 +539,61 @@ const AssignmentPage2 = () => {
               </div>
             </div>
 
+            {attachments.length > 0 && (
+              <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                {attachments.map((file, index) => (
+                  <div key={index} style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "10px 14px",
+                    background: "#fef2f2",
+                    borderRadius: "8px",
+                    border: "1px solid #fecaca",
+                  }}>
+                    <div style={{
+                      width: "32px",
+                      height: "32px",
+                      background: "#ef4444",
+                      borderRadius: "4px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontSize: "10px",
+                      fontWeight: "600",
+                      flexShrink: 0,
+                    }}>
+                      {file.name.split(".").pop().toUpperCase()}
+                    </div>
+                    <span style={{ flex: 1, fontSize: "14px", color: "#374151", wordBreak: "break-word" }}>
+                      {file.name}
+                    </span>
+                    <span style={{ fontSize: "12px", color: "#9ca3af", flexShrink: 0 }}>
+                      {(file.size / (1024 * 1024)).toFixed(2)} MB
+                    </span>
+                    <button
+                      onClick={() => removeAttachment(index)}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#ef4444",
+                        cursor: "pointer",
+                        fontSize: "18px",
+                        lineHeight: 1,
+                        flexShrink: 0,
+                        padding: "0 4px",
+                      }}
+                      title="Remove file"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <button style={styles.submitBtn} onClick={() => {
-              // Check if description is empty or no attachments
               if (!description.trim() && attachments.length === 0) {
                 setShowMissingPopup(true);
               } else {
